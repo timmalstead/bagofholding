@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Timothy Malstead" />
+    <meta
+      name="description"
+      content="A console based text adventure that tests your wits, humor and patience."
+    />
+    <script defer src="js/levels.js"></script>
+    <script defer src="js/actions.js"></script>
+    <script defer src="js/app.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Bag Of Holding</title>
+  </head>
+  <body>
+    <main>
+      <h2>BAG OF HOLDING<span class="cursor">|</span></h2>
+      <section>
+        <span>######################</span>
+        <span>a console log adventure</span>
+        <span>######################</span>
+      </section>
+      <section>
+        <span class="browser italic"></span>
+        <span class="italic">or F12 to start game</span>
+      </section>
+      <p>
+        &copy;
+        <a target="_blank" href="https://www.timmalstead.com/">Tim Malstead</a>
+        | 2020<span class="copyright" />
+      </p>
+    </main>
+  </body>
+</html>
+<script>
+  navigator.userAgent.includes("Macintosh")
+    ? (document.querySelector(".browser").innerText = "Command + Option + J")
+    : (document.querySelector(".browser").innerText = "Shift + Ctrl + J")
+
+  //   document.querySelector(
+  //     ".copyright"
+  //   ).innerText = `-${new Date().toISOString().replace(/-.*/, "")}`
+</script>

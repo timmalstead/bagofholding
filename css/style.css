@@ -1,0 +1,51 @@
+body {
+  background-color: #101010;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: monospace;
+  font-size: 1.3em;
+}
+
+main,
+section {
+  margin: 0 0 1em 0;
+  display: inherit;
+  justify-content: space-around;
+  align-items: inherit;
+  flex-direction: inherit;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+a,
+main {
+  color: #286030;
+}
+
+a {
+  text-decoration: none;
+  border-bottom: dotted 0.1em;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.cursor {
+  animation: flash 0.75s infinite alternate;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
