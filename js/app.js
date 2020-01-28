@@ -1,4 +1,5 @@
 const bag = window.localStorage
+const activeItems = []
 
 const space = () => console.log("---")
 const actPrmpt = () => {
