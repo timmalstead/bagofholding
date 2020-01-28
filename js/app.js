@@ -1,5 +1,4 @@
 const bag = window.localStorage
-const activeItems = []
 
 const space = () => console.log("---")
 const actPrmpt = () => {
@@ -9,6 +8,7 @@ const actPrmpt = () => {
 }
 
 let act = {}
+let items = {}
 
 const game = {
   logActions: false,
@@ -25,10 +25,10 @@ const game = {
     if (bag.level) {
       console.log("You already have a game in progress.")
       space()
-      eval(`${[bag.level]}.start()`)
+      return eval(`${[bag.level]}.start()`)
     } else {
       bag.level = "aFiresideChat"
-      aFiresideChat.start()
+      return aFiresideChat.start()
     }
   },
   cmds() {
@@ -43,6 +43,7 @@ const game = {
     game.
         cmds() : lists game controls
         end() : ends session and erases game
+        restart() : erases session and restarts game
 
 `
     if (game.logActions) {
@@ -54,6 +55,11 @@ const game = {
   end() {
     bag.clear()
     return "Don't quite have what it takes, eh? Well, maybe come back and try again sometime."
+  },
+  restart() {
+    bag.clear()
+    console.log("Restarting...")
+    return this.start()
   }
 }
 

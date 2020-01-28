@@ -20,7 +20,7 @@ const aFiresideChat = {
       runToLight: () => this.enterCamp(),
       runFromLight: () => run()
     }
-    game.switchLog(game.cmds)
+    return game.switchLog(game.cmds)
   },
   run() {
     this.didRun = true
