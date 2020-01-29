@@ -2,6 +2,9 @@ const aFiresideChat = {
   didRun: false,
   didLie: false,
   start() {
+    console.log("######################")
+    console.log("Part One: A Fireside Chat")
+    console.log("######################")
     console.log("You find yourself in a clearing.")
     console.log(
       "You cannot remember how you got there or how long you have been there."
@@ -15,11 +18,11 @@ const aFiresideChat = {
     )
     console.log("A campfire perhaps? Could be.")
     console.log("The hunger is starting to grow. Soon you will be ravenous.")
-    actPrmpt()
     act = {
       runToLight: () => this.enterCamp(),
       runFromLight: () => run()
     }
+    actPrmpt()
     return game.switchLog(game.cmds)
   },
   run() {
@@ -169,7 +172,7 @@ const aFiresideChat = {
     )
     console.log("'GIT IT WHILES ITS HOT'!!!")
     console.log(
-      `${oldMan} produces a wooden bowl and ladel, seemingly from nowhere, and in one smooth motion scoops a generous portion of stew into the bowl and tosses it to you underhanded over the fire. You'd probably admire the grace and fluidity of it all if you were'nt suddenly deathly afraid of molten hot stew splashing on you. Weren't you going to do your business first? Whatever that is.`
+      `${oldMan} produces a wooden bowl and ladel, seemingly from nowhere, and in one smooth motion scoops a generous portion of stew into the bowl and tosses it to you underhanded over the fire. You'd probably admire the grace and fluidity of it all if you weren't suddenly deathly afraid of molten hot stew splashing on you. Weren't you going to do your business first? Whatever that is.`
     )
     console.log(
       "'HEY!' you yell, covering your face with one arm and stretching out the other, hoping to bat the bowl out of the air before it gets too close. You need to eat, but you need to not have second degree burns even more."
@@ -189,7 +192,7 @@ const aFiresideChat = {
     )
     console.log("'What's in this'? you ask after you're finished your bite.")
     console.log(
-      `'Veggies, goatmeal n' some other stuff' says ${oldMan}. It looks like he's eaten almost the entire bowl.`
+      `'Veggies, goatmeal n' some other stuff' says ${oldMan}. It looks like he's eaten almost his entire bowl.`
     )
     console.log("Goatmeal? Surely he must have meant oatmeal right?")
     console.log(
@@ -199,12 +202,86 @@ const aFiresideChat = {
     return this.downToBusinessFinally(name, oldMan)
   },
   downToBusinessFinally(name, oldMan) {
-    return `${name} and ${oldMan}`
+    if (this.didRun) {
+      console.log(
+        "As you eat, the soreness from your muscles numbs and you begin to feel much better."
+      )
+    }
+    console.log(
+      `After the stew is gone, you and ${oldMan} sit in silence for a time.`
+    )
+    console.log("After a bit, he breaks the silence with a loud belch.")
+    console.log("'BRRRAAAAAAAPPPP'")
+    console.log("'Well, I suppose we should get down to it then' he says.")
+    console.log(
+      "'I was asked to give you a certain item, yes a VERY certain item. It's...'"
+    )
+    console.log("Certainly...an item.")
+    console.log(
+      `'You've forgotten what it is, haven't you?' you ask. ${oldMan}'s dithering, so annoying just a few minutes ago, is much more tolerable with a full belly.'`
+    )
+    console.log(
+      `'No, No. I've got it right around here somewhere' ${oldMan} says as he begins to root around in a gunny sack placed just behind the log, in such a way that you could not see it previously.`
+    )
+    console.log("'That must be where he kept the bowl and ladle' you think.")
+    getInitialItems()
+    console.log(
+      `He roots around in the bag a bit, tossing out a few items on the ground, including a ${
+        Object.keys(items)[2]
+      }, a ${Object.keys(items)[1]} and what appears to be a ${
+        Object.keys(items)[0]
+      }.`
+    )
+    console.log(
+      "At length the old man finished his search and said 'Ah yes!, I knew I had it here'."
+    )
+    console.log(
+      `${oldMan} moves in front of you, still sitting on the log, clears his throat and says'Here we are ${name}, one very special bag'. In his hands right hand he is holding a decidedly un-special looking canvas drawstring bag, about eight inches wide by ten inches long, cinched with rawhide strinps and with a leather loop to attach it to a belt.`
+    )
+    console.log(
+      "'I hope you'll pardon me for saying so' you say 'But there does't seem to be much of anything special about that bag.'"
+    )
+    console.log(
+      "'It's very special'! the old man says, seemingly hurt by your flippance. 'Not that you deserve it, but I'll give you a demonstration'."
+    )
+    console.log(
+      `In what seems to be becoming a pattern, you have no idea what ${oldMan} is talking about. Before you can even ask him what he means by it, he has stuffed the ${
+        Object.keys(items)[1]
+      } into the bag and is reaching toward the ${
+        Object.keys(items)[2]
+      }. That's not a big deal, but when he stuffs the nearly 5 foot long ${
+        Object.keys(items)[0]
+      } into the small bag, you are a bit surprised.`
+    )
+    console.log(
+      "Knocked out of your creeping food coma by the surprise, you stammer 'How did you do that'?"
+    )
+    console.log(
+      `${oldMan} shrugs and says, simply 'I told you that the bag was special. It's a bag of holding. Bigger on the inside than on the outside. Not too many left these days.'`
+    )
+    console.log("He moves to stand in front of you.")
+    console.log(
+      `'I was asked to give it to you, ${name}. But before I do, I want to ask you a question: how is it you came to be here? You never did tell me'.`
+    )
+    console.log(
+      "'Of course I never told you, you old loon' you think 'this is the first time we've met'!"
+    )
+    console.log(
+      "This is all a bit much. You've just seen something that shouldn't be possible, and you've no memory about how to came to be...wherever you are."
+    )
+    act = {
+      lie: (name, oldMan) => this.lie(name, oldMan),
+      tellTheTruth: (name, oldMan) => this.tellTheTruth(name, oldMan)
+    }
+    actPrmpt()
+    return game.switchLog(game.cmds)
   },
-  lie() {
+  lie(name, oldMan) {
     return "I don't like liars"
   },
-  tellTheTruth() {}
+  tellTheTruth(name, oldMan) {
+    return "you told the truth"
+  }
 }
 
-const aFatefulDestiny = {}
+const aDestinyMostFateful = {}
