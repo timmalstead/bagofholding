@@ -29,7 +29,7 @@
       <p>
         &copy;
         <a target="_blank" href="https://www.timmalstead.com/">Tim Malstead</a>
-        | 2020<span class="copyright" />
+        | <span class="datecheck">2020</span><span class="copyright" />
       </p>
     </main>
   </body>
@@ -39,7 +39,12 @@
     ? (document.querySelector(".browser").innerText = "Command + Option + J")
     : (document.querySelector(".browser").innerText = "Shift + Ctrl + J")
 
-  //   document.querySelector(
-  //     ".copyright"
-  //   ).innerText = `-${new Date().toISOString().replace(/-.*/, "")}`
+  if (
+    new Date().getFullYear() >
+    parseInt(document.querySelector(".datecheck").innerText)
+  ) {
+    document.querySelector(
+      ".copyright"
+    ).innerText = `-${new Date().getFullYear()}`
+  }
 </script>
