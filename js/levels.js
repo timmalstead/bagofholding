@@ -310,16 +310,16 @@ const aFiresideChat = {
     )
     console.log(`${oldMan} gets very quiet at this.`)
     console.log(
-      `Thank you for telling me the truth ${name}. I appreciate honesty.`
+      `'Thank you for telling me the truth ${name}. I appreciate honesty.'`
     )
     console.log(
       "He stretches out his arm to you 'Here, this belongs to you, and I have a feeling it will come in handy'."
     )
     console.log(`You gladly accept the bag and loop it on your belt.`)
     console.log(
-      "He continues 'The fire won't burn down for a while yet, and I've got another bedroll around here somewhere'."
+      "He continues 'The fire won't burn down for a while yet, and I think I've got another bedroll around here somewhere'."
     )
-    console.log("He does indeed, and you sleep soundly through the night.")
+    console.log("He does, and you sleep soundly through the night.")
     return this.end()
   },
   end() {
