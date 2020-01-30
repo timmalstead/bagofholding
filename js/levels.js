@@ -270,13 +270,15 @@ const aFiresideChat = {
       "This is all a bit much. You've just seen something that shouldn't be possible, and you've no memory about how you came to be...wherever you are."
     )
     act = {
-      lie: (name, oldMan) => this.lie(name, oldMan),
-      tellTheTruth: (name, oldMan) => this.tellTheTruth(name, oldMan)
+      lie: () => this.lie(),
+      tellTheTruth: () => this.tellTheTruth()
     }
     actPrmpt()
     return game.switchLog(game.cmds)
   },
-  lie(name, oldMan) {
+  lie() {
+    const oldMan = bag.oldMansName
+    const name = bag.name
     this.didLie = true
     console.log(
       `You think about it for a moment. You don't know this guy, not really. You don't know if he is going to believe you if you tell him that you have no recollection of how you came to be here. You decide to lie`
@@ -301,7 +303,9 @@ const aFiresideChat = {
     )
     return this.end()
   },
-  tellTheTruth(name, oldMan) {
+  tellTheTruth() {
+    const oldMan = bag.oldMansName
+    const name = bag.name
     console.log(
       "You remember hearing somewhere that honesty is the best policy."
     )
