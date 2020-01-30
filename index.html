@@ -24,7 +24,7 @@
       </section>
       <section>
         <span class="browser italic"></span>
-        <span class="italic">or F12 to start game</span>
+        <span class="italic mobile">or F12 to start game</span>
       </section>
       <p>
         &copy;
@@ -35,8 +35,14 @@
   </body>
 </html>
 <script>
-  navigator.userAgent.includes("Macintosh")
+  const agent = navigator.userAgent
+
+  agent.includes("Macintosh")
     ? (document.querySelector(".browser").innerText = "Command + Option + J")
+    : agent.includes("iPhone") || agent.includes("Android")
+    ? ((document.querySelector(".browser").innerText =
+        "This game is designed to be played on a desktop browser"),
+      document.querySelector(".mobile").classList.add("hide"))
     : (document.querySelector(".browser").innerText = "Shift + Ctrl + J")
 
   if (

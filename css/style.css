@@ -41,6 +41,10 @@ a {
   animation: flash 0.75s infinite alternate;
 }
 
+.hide {
+  display: none;
+}
+
 @keyframes flash {
   0% {
     opacity: 1;
