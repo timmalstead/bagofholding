@@ -294,7 +294,7 @@ const aFiresideChat = {
     )
     console.log("I DON'T LIKE LIARS!!!")
     console.log(
-      "Pain explodes inside your skull and you reel to the side, before collapsing down on the ground"
+      "Pain explodes inside your skull and you reel to the side before collapsing down on the ground"
     )
     console.log(
       "The last thing you remember before blacking out is the distinct feeling that the worst is yet to come."
@@ -323,10 +323,11 @@ const aFiresideChat = {
     return this.end()
   },
   end() {
+    act = {}
     bag.level = "aDestinyMostFateful"
     bag.items = JSON.stringify(items)
-    bag.lv1didLie = this.didLie
-    bag.lv1didRun = this.didRun
+    bag.lv1didLie = JSON.stringify(this.didLie)
+    bag.lv1didRun = JSON.stringify(this.didRun)
     return aDestinyMostFateful.start()
   }
 }
