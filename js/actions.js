@@ -60,3 +60,12 @@ const getInitialItems = () => {
     initialItems.splice(num, 1)
   }
 }
+
+const randomLie = () => {
+  const lies = [
+    "I got seperated from a group of merchants I am travelling with. I'm very wealthy and you will be rewarded for your kindness.",
+    "I work for the lord of this land, collecting taxes. Are you all paid up?",
+    "I work for crazy old man quarterly. Congratulations, you're been selected as our latest Crazy Old Man of the Year!"
+  ]
+  return lies[Math.floor(Math.random() * lies.length)]
+}

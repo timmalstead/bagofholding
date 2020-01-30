@@ -8,16 +8,16 @@ const actPrmpt = () => {
 }
 
 let act = {}
-let items = {
-  inv() {
-    if (Object.keys(this).length > 1) {
-      return `The bag currently holds ${Object.keys(this)
-        .filter(item => item !== "inv")
-        .toString()
-        .replace(/,/g, " and a ")}`
-    } else {
-      return "There is nothing in the bag right now."
-    }
+let items = {}
+
+const bagInv = () => {
+  if (Object.keys(items).length) {
+    return `The bag currently holds a ${Object.keys(items)
+      .filter(item => item !== "inv")
+      .toString()
+      .replace(/,/g, " and a ")}.`
+  } else {
+    return "There is nothing in the bag right now."
   }
 }
 
@@ -30,7 +30,6 @@ const game = {
     return ""
   },
   start() {
-    bag.clear()
     console.log("Welcome to Bag of Holding")
     space()
     console.log("type game.cmds() at any time to see available commands")
@@ -40,12 +39,29 @@ const game = {
       space()
       return eval(`${[bag.level]}.start()`)
     } else {
+      bag.clear()
       bag.level = "aFiresideChat"
       return aFiresideChat.start()
     }
   },
   cmds() {
-    const commands = `
+    let commands
+    Object.keys(items).length
+      ? (commands = `
+    Available Commands and Inventory:
+
+    ${bagInv()}
+
+    act.
+        ${Object.keys(act)
+          .toString()
+          .replace(/,/g, "()\n        ")}()
+
+    game.
+        cmds() : lists game controls
+        end() : ends session and erases game
+`)
+      : (commands = `
     Available Commands:
 
     act.
@@ -56,7 +72,7 @@ const game = {
     game.
         cmds() : lists game controls
         end() : ends session and erases game
-`
+`)
     if (game.logActions) {
       console.log(commands)
     } else {

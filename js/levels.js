@@ -277,11 +277,65 @@ const aFiresideChat = {
     return game.switchLog(game.cmds)
   },
   lie(name, oldMan) {
-    return "I don't like liars"
+    this.didLie = true
+    console.log(
+      `You think about it for a moment. You don't know this guy, not really. You don't know how he is going to believe you if you tell him that you have no recollection of how you came to be here. You decide to lie`
+    )
+    const lie = randomLie()
+    console.log(`Better think of something quickly.'${lie}' you blurt out.`)
+    console.log(`${oldMan} gets very quiet at this.`)
+    console.log(
+      "An eerie silence grips the air for what seems like a long time."
+    )
+    console.log(`Finally, the old man says '${name}, do you think me a fool'?`)
+    console.log("I KNOW WHEN I'M BEING LIED TO!!")
+    console.log(
+      `Once again displaying that uncanny speed of his, ${oldMan} dashes up and clocks you square on the side of the head before you even have a chance to put your fists up.`
+    )
+    console.log("I DON'T LIKE LIARS!!!")
+    console.log(
+      "Pain explodes inside your skull and you reel to the side, before collapsing down on the ground"
+    )
+    console.log(
+      "The last thing you remember before blacking out is the distinct feeling that the worst is yet to come."
+    )
+    return this.end()
   },
   tellTheTruth(name, oldMan) {
-    return "you told the truth"
+    console.log(
+      "You remember hearing somewhere that honesty is the best policy."
+    )
+    console.log(
+      "'Well,' you start 'To be honest I don't really know how I came to be here. Before I came to your camp I kind of just found myself standing in the field over there. I'm not sure of anything before that'"
+    )
+    console.log(`${oldMan} gets very quiet at this.`)
+    console.log(
+      `Thank you for telling me the truth ${name}. I appreciate honesty.`
+    )
+    console.log(
+      "He stretches out his arm to you 'Here, this belongs to you, and I have a feeling it will come in handy'."
+    )
+    console.log(`You gladly accept the bag and loop it on your belt.`)
+    console.log(
+      "He continues 'The fire won't burn down for a while yet, and I've got another bedroll around here somewhere'."
+    )
+    console.log("He does indeed, and you sleep soundly through the night.")
+    return this.end()
+  },
+  end() {
+    bag.level = "aDestinyMostFateful"
+    bag.items = JSON.stringify(items)
+    bag.lv1didLie = this.didLie
+    bag.lv1didRun = this.didRun
+    return aDestinyMostFateful.start()
   }
 }
 
-const aDestinyMostFateful = {}
+const aDestinyMostFateful = {
+  //remember that you wake up with the bag on you and the old man gone regardless of other things. probably add the bedroll to the bag as well
+  start() {
+    items = JSON.parse(bag.items)
+    console.log("howdy")
+    return "level two"
+  }
+}
