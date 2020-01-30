@@ -39,7 +39,9 @@
 
   agent.includes("Macintosh")
     ? (document.querySelector(".browser").innerText = "Command + Option + J")
-    : agent.includes("iPhone") || agent.includes("Android")
+    : agent.includes("iPhone") ||
+      agent.includes("iPad") ||
+      agent.includes("Android")
     ? ((document.querySelector(".browser").innerText =
         "Only for desktop browsers"),
       document.querySelector(".mobile").classList.add("hide"))
