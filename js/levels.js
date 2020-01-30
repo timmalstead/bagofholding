@@ -216,12 +216,12 @@ const aFiresideChat = {
     console.log(
       "'I was asked to give you a certain item, yes a VERY certain item. It's...'"
     )
-    console.log("Certainly...an item.")
+    console.log("'Certainly...an item.'")
     console.log(
-      `'You've forgotten what it is, haven't you?' you ask. ${oldMan}'s dithering, so annoying just a few minutes ago, is much more tolerable with a full belly.'`
+      `'You've forgotten what it is, haven't you?' you ask. ${oldMan}'s dithering, so annoying just a few minutes ago, is much more tolerable with a full belly.`
     )
     console.log(
-      `'No, No. I've got it right around here somewhere' ${oldMan} says as he begins to root around in a gunny sack placed just behind the log, in such a way that you could not see it previously.`
+      `'No, No, I didn't. And I've got it right around here somewhere' ${oldMan} says as he begins to root around in a gunny sack placed just behind the log, in such a way that you could not see it previously.`
     )
     console.log("'That must be where he kept the bowl and ladle' you think.")
     getInitialItems()
@@ -236,10 +236,10 @@ const aFiresideChat = {
       "At length the old man finished his search and said 'Ah yes!, I knew I had it here'."
     )
     console.log(
-      `${oldMan} moves in front of you, still sitting on the log, clears his throat and says'Here we are ${name}, one very special bag'. In his hands right hand he is holding a decidedly un-special looking canvas drawstring bag, about eight inches wide by ten inches long, cinched with rawhide strinps and with a leather loop to attach it to a belt.`
+      `${oldMan} moves in front of you, still sitting on the log, clears his throat and says'Here we are ${name}, one very special bag'. In his right hand he is holding a decidedly un-special looking canvas drawstring bag, about eight inches wide by ten inches long, cinched with rawhide strinps and with a leather loop to attach it to a belt.`
     )
     console.log(
-      "'I hope you'll pardon me for saying so' you say 'But there does't seem to be much of anything special about that bag.'"
+      "'I hope you'll pardon me for saying so' you say 'But there doesn't seem to be much of anything special about that bag.'"
     )
     console.log(
       "'It's very special'! the old man says, seemingly hurt by your flippance. 'Not that you deserve it, but I'll give you a demonstration'."
@@ -257,7 +257,7 @@ const aFiresideChat = {
       "Knocked out of your creeping food coma by the surprise, you stammer 'How did you do that'?"
     )
     console.log(
-      `${oldMan} shrugs and says, simply 'I told you that the bag was special. It's a bag of holding. Bigger on the inside than on the outside. Not too many left these days.'`
+      `${oldMan} shrugs and says 'I told you that the bag was special. It's a bag of holding. Bigger on the inside than on the outside. Not too many left these days.'`
     )
     console.log("He moves to stand in front of you.")
     console.log(
@@ -267,7 +267,7 @@ const aFiresideChat = {
       "'Of course I never told you, you old loon' you think 'this is the first time we've met'!"
     )
     console.log(
-      "This is all a bit much. You've just seen something that shouldn't be possible, and you've no memory about how to came to be...wherever you are."
+      "This is all a bit much. You've just seen something that shouldn't be possible, and you've no memory about how you came to be...wherever you are."
     )
     act = {
       lie: (name, oldMan) => this.lie(name, oldMan),
@@ -279,7 +279,7 @@ const aFiresideChat = {
   lie(name, oldMan) {
     this.didLie = true
     console.log(
-      `You think about it for a moment. You don't know this guy, not really. You don't know how he is going to believe you if you tell him that you have no recollection of how you came to be here. You decide to lie`
+      `You think about it for a moment. You don't know this guy, not really. You don't know if he is going to believe you if you tell him that you have no recollection of how you came to be here. You decide to lie`
     )
     const lie = randomLie()
     console.log(`Better think of something quickly.'${lie}' you blurt out.`)
@@ -288,11 +288,11 @@ const aFiresideChat = {
       "An eerie silence grips the air for what seems like a long time."
     )
     console.log(`Finally, the old man says '${name}, do you think me a fool'?`)
-    console.log("I KNOW WHEN I'M BEING LIED TO!!")
+    console.log("'I KNOW WHEN I'M BEING LIED TO!!'")
     console.log(
       `Once again displaying that uncanny speed of his, ${oldMan} dashes up and clocks you square on the side of the head before you even have a chance to put your fists up.`
     )
-    console.log("I DON'T LIKE LIARS!!!")
+    console.log("'I DON'T LIKE LIARS!!!'")
     console.log(
       "Pain explodes inside your skull and you reel to the side before collapsing down on the ground"
     )
@@ -334,9 +334,9 @@ const aFiresideChat = {
 
 const aDestinyMostFateful = {
   //remember that you wake up with the bag on you and the old man gone regardless of other things. probably add the bedroll to the bag as well
+  //debug the lie and tell the truth, figure out why you are getting undefined on names
   start() {
     items = JSON.parse(bag.items)
-    console.log("howdy")
-    return "level two"
+    return "Tune in next time Bag Fans, for another great text based level!"
   }
 }
