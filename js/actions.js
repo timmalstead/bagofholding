@@ -1,3 +1,5 @@
+const bag = window.localStorage
+
 const run = () => eval(`${[bag.level]}.run()`)
 
 const storeNames = name => {

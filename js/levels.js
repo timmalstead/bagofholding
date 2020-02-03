@@ -338,8 +338,6 @@ const aFiresideChat = {
 }
 
 const aDestinyMostFateful = {
-  oldMan: bag.oldMansName,
-  name: bag.name,
   bigRoad: true,
   start() {
     items = JSON.parse(bag.items)
@@ -347,6 +345,7 @@ const aDestinyMostFateful = {
     console.log("Part Two: A Destiny Most Fateful")
     console.log("######################")
     space()
+    console.log("Morning comes, as it usually does.")
     if (JSON.parse(bag.lv1didLie)) {
       console.log(
         "Light stabs your eyes. You can feel a lump the size of a robin's egg grown on the side of your head."
@@ -382,14 +381,58 @@ const aDestinyMostFateful = {
       console.log(
         "'That may have been the best night's sleep I ever had' you think."
       )
+      console.log(
+        "The old man is nowhere to be seen.'Must have taken off early' you think."
+      )
       if (JSON.parse(bag.lv1didRun)) {
         console.log(
           "You're a little sore from your ill-advised run last night, but other than that you feel great!"
         )
       }
+      console.log(
+        "The bag is still hooked to your belt loop right where you left it."
+      )
     }
-
-    //add bedroll and leave camp, find two roads. different adventures for different roads
-    return "Tune in next time Bag Fans, for another great text based level!"
+    console.log("You get up, stretch, do your necessaries. Morning stuff")
+    items.bedroll = true
+    console.log(
+      "For better or worse it's time to go. You roll up the bedroll and stuff it into the Bag of Holding."
+    )
+    console.log(
+      "Somehow, the bag streches wide enough to allow you to fit the bedroll in. This bag is rad."
+    )
+    space()
+    console.log(
+      "There is a small road that leads out of camp. Without anywhere else to go, you decide to take it."
+    )
+    if (JSON.parse(bag.lv1didLie)) {
+      console.log(
+        "It's a nice enough walk, even with your aching head. Before too long you come to a fork in the path."
+      )
+    } else {
+      console.log(
+        "It's a nice enough walk. Before too long you come to a fork in the path."
+      )
+    }
+    console.log(
+      "The road to your right is wide and well maintained. You can tell it sees regular traffic. It is open and bright and you will be able to see anyone coming up to you for quite a ways."
+    )
+    console.log(
+      "The road on left is small and dark, overgrown with a canopy of scraggly trees. Barely enough room for two people to stand side by side, the path curves sharply about 60 feet from the fork in the road. If there are many curves like that, you won't be able to tell what's coming up to greet you."
+    )
+    act = {
+      takeBigRoad: () => this.bigRoad(),
+      takeSmallRoad: () => this.littleRoad()
+    }
+    actPrmpt()
+    return game.switchLog(game.cmds)
+  },
+  bigRoad() {
+    act = {}
+    return "you took the big road"
+  },
+  littleRoad() {
+    act = {}
+    return "you took the little road"
   }
 }

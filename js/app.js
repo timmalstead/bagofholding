@@ -1,5 +1,3 @@
-const bag = window.localStorage
-
 const space = () => console.log("---")
 const actPrmpt = () => {
   space()
