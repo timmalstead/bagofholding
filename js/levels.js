@@ -5,6 +5,7 @@ const aFiresideChat = {
     console.log("######################")
     console.log("Part One: A Fireside Chat")
     console.log("######################")
+    space()
     console.log("You find yourself in a clearing.")
     console.log(
       "You cannot remember how you got there or how long you have been there."
@@ -337,10 +338,58 @@ const aFiresideChat = {
 }
 
 const aDestinyMostFateful = {
-  //remember that you wake up with the bag on you and the old man gone regardless of other things. probably add the bedroll to the bag as well
-  //debug the lie and tell the truth, figure out why you are getting undefined on names
+  oldMan: bag.oldMansName,
+  name: bag.name,
+  bigRoad: true,
   start() {
     items = JSON.parse(bag.items)
+    console.log("######################")
+    console.log("Part Two: A Destiny Most Fateful")
+    console.log("######################")
+    space()
+    if (JSON.parse(bag.lv1didLie)) {
+      console.log(
+        "Light stabs your eyes. You can feel a lump the size of a robin's egg grown on the side of your head."
+      )
+      console.log("That old fella really packs a wallop.")
+      console.log(
+        "You lay for a while with your eyes closed. Once you've decided for certain the sun is not going to change its mind about rising, you decide you have to greet the day."
+      )
+      console.log(
+        "Slowly, haltingly, you open your eyes. You bring yourself up off your back onto your elbows."
+      )
+      if (JSON.parse(bag.lv1didRun)) {
+        console.log(
+          "In addition to the pain in your head, a sore stiffness has set into your limbs. Running was not a great idea."
+        )
+      }
+      console.log(
+        "You notice you're in a bedroll. The fire has gone out and the old man is nowhere to be seen."
+      )
+      console.log(
+        "'So he clocks me and then tucks me in'? you think, your right hand going to the pulsing protuberance on your head. The moment you graze it a sharp pain shoots through your head and neck."
+      )
+      console.log(
+        "'This is NOT going to be my morning' you say out loud to no one."
+      )
+      console.log(
+        "It's right about then you notice you are holding the Bag of Holding in your left hand."
+      )
+    } else {
+      console.log(
+        "You awake from a blissful slumber to the sound of birds chirping and the sun shining brilliantly through the trees."
+      )
+      console.log(
+        "'That may have been the best night's sleep I ever had' you think."
+      )
+      if (JSON.parse(bag.lv1didRun)) {
+        console.log(
+          "You're a little sore from your ill-advised run last night, but other than that you feel great!"
+        )
+      }
+    }
+
+    //add bedroll and leave camp, find two roads. different adventures for different roads
     return "Tune in next time Bag Fans, for another great text based level!"
   }
 }
