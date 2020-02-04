@@ -83,7 +83,7 @@ const aFiresideChat = {
     )
     console.log("You see a wizened, stooping old man. Eighty if he's a day.")
     console.log(
-      "Bald-pated, with a few strands of wispy hair desperately clinging to the sides of his skull, two impossibly bushy eyebrows leep from his forehead like agitated caterpillars."
+      "Bald-pated, with a few strands of wispy hair desperately clinging to the sides of his skull, two impossibly bushy eyebrows leap from his forehead like agitated caterpillars."
     )
     console.log(
       "Beneath those fuzzy monsters, two watery, sleepy eyes frame a bulbous nose."
@@ -173,7 +173,7 @@ const aFiresideChat = {
     )
     console.log("'GIT IT WHILES ITS HOT'!!!")
     console.log(
-      `${oldMan} produces a wooden bowl and ladel, seemingly from nowhere, and in one smooth motion scoops a generous portion of stew into the bowl and tosses it to you underhanded over the fire. You'd probably admire the grace and fluidity of it all if you weren't suddenly deathly afraid of molten hot stew splashing on you. Weren't you going to do your business first? Whatever that is.`
+      `${oldMan} produces a wooden bowl and ladle, seemingly from nowhere, and in one smooth motion scoops a generous portion of stew into the bowl and tosses it to you underhanded over the fire. You'd probably admire the grace and fluidity of it all if you weren't suddenly deathly afraid of molten hot stew splashing on you. Weren't you going to do your business first? Whatever that is.`
     )
     console.log(
       "'HEY!' you yell, covering your face with one arm and stretching out the other, hoping to bat the bowl out of the air before it gets too close. You need to eat, but you need to not have second degree burns even more."
@@ -237,7 +237,7 @@ const aFiresideChat = {
       "At length the old man finished his search and said 'Ah yes!, I knew I had it here'."
     )
     console.log(
-      `${oldMan} moves in front of you, still sitting on the log, clears his throat and says'Here we are ${name}, one very special bag'. In his right hand he is holding a decidedly un-special looking canvas drawstring bag, about eight inches wide by ten inches long, cinched with rawhide strinps and with a leather loop to attach it to a belt.`
+      `${oldMan} moves in front of you, still sitting on the log, clears his throat and says'Here we are ${name}, one very special bag'. In his right hand he is holding a decidedly un-special looking canvas drawstring bag, about eight inches wide by ten inches long, cinched with rawhide strings and with a leather loop to attach it to a belt.`
     )
     console.log(
       "'I hope you'll pardon me for saying so' you say 'But there doesn't seem to be much of anything special about that bag.'"
@@ -282,7 +282,7 @@ const aFiresideChat = {
     const name = bag.name
     this.didLie = true
     console.log(
-      `You think about it for a moment. You don't know this guy, not really. You don't know if he is going to believe you if you tell him that you have no recollection of how you came to be here. You decide to lie`
+      `You think about it for a moment. You don't know this guy, not really. You don't know if he is going to believe you if you tell him that you have no recollection of how you came to be here. You decide to lie.`
     )
     const lie = randomLie()
     console.log(`Better think of something quickly.'${lie}' you blurt out.`)
@@ -430,6 +430,7 @@ const aDestinyMostFateful = {
   bigRoad() {
     act = {}
     return "you took the big road"
+    //have to fix game cmds inventory to only show items with a truthy value
   },
   littleRoad() {
     act = {}
