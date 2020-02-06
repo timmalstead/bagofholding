@@ -430,7 +430,6 @@ const aDestinyMostFateful = {
   bigRoad() {
     act = {}
     return "you took the big road"
-    //have to fix game cmds inventory to only show items with a truthy value
   },
   littleRoad() {
     act = {}

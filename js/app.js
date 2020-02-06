@@ -11,7 +11,6 @@ let items = {}
 const bagInv = () => {
   if (Object.keys(items).length) {
     return `The bag currently holds a ${Object.keys(items)
-      .filter(item => item !== "inv")
       .toString()
       .replace(/,/g, " and a ")}.`
   } else {
