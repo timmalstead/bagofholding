@@ -27,6 +27,8 @@ const game = {
     return ""
   },
   start() {
+    console.log(oldManDark)
+    console.log(oldManLight)
     console.log("Welcome to Bag of Holding")
     space()
     console.log("type game.cmds() at any time to see available commands")
