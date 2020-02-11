@@ -27,8 +27,6 @@ const game = {
     return ""
   },
   start() {
-    console.log(oldManDark)
-    console.log(oldManLight)
     console.log("Welcome to Bag of Holding")
     space()
     console.log("type game.cmds() at any time to see available commands")
@@ -39,8 +37,9 @@ const game = {
       return eval(`${[bag.level]}.start()`)
     } else {
       bag.clear()
-      bag.level = "aFiresideChat"
-      return aFiresideChat.start()
+      return console.log(
+        "Would you like to play the game with illustrations? Please type illu(true) or illu(false)"
+      )
     }
   },
   cmds() {

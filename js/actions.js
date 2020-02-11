@@ -1,5 +1,11 @@
 const bag = window.localStorage
 
+const illu = choice => {
+  choice ? (bag.illu = true) : (bag.illu = false)
+  bag.level = "aFiresideChat"
+  return aFiresideChat.start()
+}
+
 const run = () => eval(`${[bag.level]}.run()`)
 
 const storeNames = name => {

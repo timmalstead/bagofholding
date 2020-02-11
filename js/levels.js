@@ -142,6 +142,9 @@ const aFiresideChat = {
       sayName: name => storeNames(name)
     }
     space()
+    if (JSON.parse(bag.illu)) {
+      console.log(oldManIllo)
+    }
     return "Please enter act.sayName() with your name between the parentheses, and using quotation marks. For example sayName('Frederick')"
   },
   dinner(name) {
