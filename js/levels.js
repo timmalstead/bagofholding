@@ -421,7 +421,7 @@ const aDestinyMostFateful = {
       "The road to your right is wide and well maintained. You can tell it sees regular traffic. It is open and bright and you will be able to see anyone coming up to you for quite a ways."
     )
     console.log(
-      "The road on left is small and dark, overgrown with a canopy of scraggly trees. Barely enough room for two people to stand side by side, the path curves sharply about 60 feet from the fork in the road. If there are many curves like that, you won't be able to tell what's coming up to greet you."
+      "The road on left is small and dark, overgrown with a canopy of scraggly trees. Barely enough room for two people to stand side by side, the path curves sharply about 60 feet from the fork. If there are many curves like that, you won't be able to tell what's coming up to greet you."
     )
     act = {
       takeBigRoad: () => this.bigRoad(),
@@ -436,6 +436,18 @@ const aDestinyMostFateful = {
   },
   littleRoad() {
     act = {}
+    console.log("You decide to take the road less traveled by.")
+    console.log(
+      "Slowly stalking down the shadowy path, you take the sharp turn."
+    )
+    console.log("Then another.")
+    console.log("Then another.")
+    const encounter = random(3)
+    if (encounter === 0) {
+      console.log("fight bandits")
+    } else if (encounter === 1) {
+      console.log("friendly frog")
+    } else console.log("proceed without incident")
     return "you took the little road"
   }
 }

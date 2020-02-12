@@ -6,6 +6,8 @@ const illu = choice => {
   return aFiresideChat.start()
 }
 
+const random = num => Math.floor(Math.random() * num)
+
 const run = () => eval(`${[bag.level]}.run()`)
 
 const storeNames = name => {
