@@ -432,6 +432,14 @@ const aDestinyMostFateful = {
   },
   bigRoad() {
     act = {}
+    console.log(
+      "You're not here to have an adventure. You don't know what you're here for, but it definitely is not that."
+    )
+    console.log("You decide to take the main road.")
+    const encounter = random(2)
+    if (encounter === 0) {
+      console.log("proceed peacefully")
+    } else console.log("something else")
     return "you took the big road"
   },
   littleRoad() {
