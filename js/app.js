@@ -1,7 +1,8 @@
-const space = () => console.log("---")
+const space = () => log("---")
+const log = (toLog) => console.log(toLog)
 const actPrmpt = () => {
   space()
-  console.log("What will you do?")
+  log("What will you do?")
   space()
 }
 
@@ -27,17 +28,17 @@ const game = {
     return ""
   },
   start() {
-    console.log("Welcome to Bag of Holding")
+    log("Welcome to Bag of Holding")
     space()
-    console.log("type game.cmds() at any time to see available commands")
+    log("type game.cmds() at any time to see available commands")
     space()
     if (bag.level) {
-      console.log("You already have a game in progress.")
+      log("You already have a game in progress.")
       space()
       return eval(`${[bag.level]}.start()`)
     } else {
       bag.clear()
-      return console.log(
+      return log(
         "Would you like to play the game with illustrations? Please type illu(true) or illu(false)"
       )
     }
@@ -51,9 +52,7 @@ const game = {
     ${bagInv()}
 
     act.
-        ${Object.keys(act)
-          .toString()
-          .replace(/,/g, "()\n        ")}()
+        ${Object.keys(act).toString().replace(/,/g, "()\n        ")}()
 
     game.
         cmds() : lists game controls
@@ -63,16 +62,14 @@ const game = {
     Available Commands:
 
     act.
-        ${Object.keys(act)
-          .toString()
-          .replace(/,/g, "()\n        ")}()
+        ${Object.keys(act).toString().replace(/,/g, "()\n        ")}()
 
     game.
         cmds() : lists game controls
         end() : ends session and erases game
 `)
     if (game.logActions) {
-      console.log(commands)
+      log(commands)
     } else {
       return commands
     }
@@ -80,7 +77,7 @@ const game = {
   end() {
     bag.clear()
     return "Don't quite have what it takes, eh? Well, maybe come back and try again sometime."
-  }
+  },
 }
 
 game.start()

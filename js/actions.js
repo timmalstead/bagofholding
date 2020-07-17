@@ -1,16 +1,16 @@
 const bag = window.localStorage
 
-const illu = choice => {
+const illu = (choice) => {
   choice ? (bag.illu = true) : (bag.illu = false)
   bag.level = "aFiresideChat"
   return aFiresideChat.start()
 }
 
-const random = num => Math.floor(Math.random() * num)
+const random = (num) => Math.floor(Math.random() * num)
 
 const run = () => eval(`${[bag.level]}.run()`)
 
-const storeNames = name => {
+const storeNames = (name) => {
   if (name && typeof name === "string") {
     bag.name = name
     const arrayOfNames = [
@@ -40,7 +40,7 @@ const storeNames = name => {
       "Gus",
       "Horace",
       "Mortimer",
-      "Otis"
+      "Otis",
     ]
     bag.oldMansName =
       arrayOfNames[Math.floor(Math.random() * arrayOfNames.length)]
@@ -62,7 +62,7 @@ const getInitialItems = () => {
     "pair of gloves",
     "ring",
     "piece of beef jerky",
-    "pair of eyeglasses"
+    "pair of eyeglasses",
   ]
   for (let i = 0; i < 2; i++) {
     const num = Math.floor(Math.random() * initialItems.length)
@@ -75,7 +75,7 @@ const randomLie = () => {
   const lies = [
     "I got seperated from a group of merchants I am travelling with. I'm very wealthy and you will be rewarded for your kindness.",
     "I work for the lord of this land, collecting taxes. Are you all paid up?",
-    "I work for crazy old man quarterly. Congratulations, you're been selected as our latest Crazy Old Man of the Year!"
+    "I work for crazy old man quarterly. Congratulations, you're been selected as our latest Crazy Old Man of the Year!",
   ]
   return lies[Math.floor(Math.random() * lies.length)]
 }
