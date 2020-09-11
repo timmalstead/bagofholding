@@ -1,7 +1,7 @@
 const bag = window.localStorage
 
 const illu = (choice) => {
-  choice ? (bag.illu = true) : (bag.illu = false)
+  bag.illu = choice ? true : false
   bag.level = "aFiresideChat"
   return aFiresideChat.start()
 }
@@ -42,8 +42,7 @@ const storeNames = (name) => {
       "Mortimer",
       "Otis",
     ]
-    bag.oldMansName =
-      arrayOfNames[Math.floor(Math.random() * arrayOfNames.length)]
+    bag.oldMansName = arrayOfNames[random(arrayOfNames.length)]
     act = {}
     return aFiresideChat.dinner(name)
   } else {
@@ -53,7 +52,7 @@ const storeNames = (name) => {
 
 const getInitialItems = () => {
   const largeItem = ["bazooka", "broom"]
-  items[largeItem[Math.floor(Math.random() * largeItem.length)]] = true
+  items[largeItem[random(largeItem.length)]] = true
   const initialItems = [
     "key",
     "small bottle",
@@ -65,7 +64,7 @@ const getInitialItems = () => {
     "pair of eyeglasses",
   ]
   for (let i = 0; i < 2; i++) {
-    const num = Math.floor(Math.random() * initialItems.length)
+    const num = random(initialItems.length)
     items[initialItems[num]] = true
     initialItems.splice(num, 1)
   }
@@ -77,5 +76,5 @@ const randomLie = () => {
     "I work for the lord of this land, collecting taxes. Are you all paid up?",
     "I work for crazy old man quarterly. Congratulations, you're been selected as our latest Crazy Old Man of the Year!",
   ]
-  return lies[Math.floor(Math.random() * lies.length)]
+  return lies[random(lies.length)]
 }

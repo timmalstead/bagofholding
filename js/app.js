@@ -1,10 +1,11 @@
-const space = () => log("---")
 const log = (toLog) => console.log(toLog)
+const space = () => log("---")
 const actPrmpt = () => {
   space()
   log("What will you do?")
   space()
 }
+const parse = (toParse) => JSON.parse(toParse)
 
 let act = {}
 let items = {}

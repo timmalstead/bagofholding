@@ -15,7 +15,7 @@ const aFiresideChat = {
       "You are starting to get hungry, and to be honest you could use a drink."
     )
     log("At the far end of the clearing, you see a flicker of orange light.")
-    log("A campfire perhaps? Could be.")
+    log("A campfire, perhaps? Could be.")
     log("The hunger is starting to grow. Soon you will be ravenous.")
     act = {
       runToLight: () => this.enterCamp(),
@@ -134,7 +134,7 @@ const aFiresideChat = {
       sayName: (name) => storeNames(name),
     }
     space()
-    if (JSON.parse(bag.illu)) {
+    if (parse(bag.illu)) {
       log(oldManIllo)
     }
     return "Please enter act.sayName() with your name between the parentheses, and using quotation marks. For example sayName('Frederick')"
@@ -186,7 +186,7 @@ const aFiresideChat = {
     )
     log("'What's in this'? you ask after you're finished your bite.")
     log(
-      `'Veggies, goatmeal n' some other stuff' says ${oldMan}. It looks like he's eaten almost his entire bowl.`
+      `'Veggies, goatmeal n' some other stuff' sputters ${oldMan}. It looks like he's eaten half his bowl already.`
     )
     log("Goatmeal? Surely he must have meant oatmeal right?")
     log(
@@ -234,7 +234,7 @@ const aFiresideChat = {
       "'I hope you'll pardon me for saying so' you say 'But there doesn't seem to be much of anything special about that bag.'"
     )
     log(
-      "'It's very special'! the old man says, seemingly hurt by your flippance. 'Not that you deserve it, but I'll give you a demonstration'."
+      "'It's very special'! the old man says, seemingly hurt by your tone. 'Not that you deserve it, but I'll give you a demonstration'."
     )
     log(
       `In what seems to be becoming a pattern, you have no idea what ${oldMan} is talking about. Before you can even ask him what he means by it, he has stuffed the ${
@@ -249,7 +249,7 @@ const aFiresideChat = {
       "Knocked out of your creeping food coma by the surprise, you stammer 'How did you do that'?"
     )
     log(
-      `${oldMan} shrugs and says 'I told you that the bag was special. It's a bag of holding. Bigger on the inside than on the outside. Not too many left these days.'`
+      `${oldMan} shrugs and says 'I told you that the bag was special. It's a Bag of Holding. Bigger on the inside than on the outside. Not too many left these days.'`
     )
     log("He moves to stand in front of you.")
     log(
@@ -262,15 +262,15 @@ const aFiresideChat = {
       "This is all a bit much. You've just seen something that shouldn't be possible, and you've no memory about how you came to be...wherever you are."
     )
     act = {
-      lie: () => this.lie(),
-      tellTheTruth: () => this.tellTheTruth(),
+      lie: () => this.lie(name, oldMan),
+      tellTheTruth: () => this.tellTheTruth(name, oldMan),
     }
     actPrmpt()
     return game.switchLog(game.cmds)
   },
-  lie() {
-    const oldMan = bag.oldMansName
-    const name = bag.name
+  lie(name, oldMan) {
+    // const oldMan = bag.oldMansName
+    // const name = bag.name
     this.didLie = true
     log(
       `You think about it for a moment. You don't know this guy, not really. You don't know if he is going to believe you if you tell him that you have no recollection of how you came to be here. You decide to lie.`
@@ -293,9 +293,9 @@ const aFiresideChat = {
     )
     return this.end()
   },
-  tellTheTruth() {
-    const oldMan = bag.oldMansName
-    const name = bag.name
+  tellTheTruth(name, oldMan) {
+    // const oldMan = bag.oldMansName
+    // const name = bag.name
     log("You remember hearing somewhere that honesty is the best policy.")
     log(
       "'Well,' you start 'To be honest I don't really know how I came to be here. Before I came to your camp I kind of just found myself standing in the field over there. I'm not sure of anything before that'"
@@ -325,13 +325,13 @@ const aFiresideChat = {
 const aDestinyMostFateful = {
   bigRoad: true,
   start() {
-    items = JSON.parse(bag.items)
+    items = parse(bag.items)
     log("######################")
     log("Part Two: A Destiny Most Fateful")
     log("######################")
     space()
     log("Morning comes, as it usually does.")
-    if (JSON.parse(bag.lv1didLie)) {
+    if (parse(bag.lv1didLie)) {
       log(
         "Light stabs your eyes. You can feel a lump the size of a robin's egg grown on the side of your head."
       )
@@ -342,7 +342,7 @@ const aDestinyMostFateful = {
       log(
         "Slowly, haltingly, you open your eyes. You bring yourself up off your back onto your elbows."
       )
-      if (JSON.parse(bag.lv1didRun)) {
+      if (parse(bag.lv1didRun)) {
         log(
           "In addition to the pain in your head, a sore stiffness has set into your limbs. Running was not a great idea."
         )
@@ -365,7 +365,7 @@ const aDestinyMostFateful = {
       log(
         "The old man is nowhere to be seen.'Must have taken off early' you think."
       )
-      if (JSON.parse(bag.lv1didRun)) {
+      if (parse(bag.lv1didRun)) {
         log(
           "You're a little sore from your ill-advised run last night, but other than that you feel great!"
         )
@@ -384,7 +384,7 @@ const aDestinyMostFateful = {
     log(
       "There is a small road that leads out of camp. Without anywhere else to go, you decide to take it."
     )
-    if (JSON.parse(bag.lv1didLie)) {
+    if (parse(bag.lv1didLie)) {
       log(
         "It's a nice enough walk, even with your aching head. Before too long you come to a fork in the path."
       )
@@ -437,7 +437,7 @@ const aDestinyMostFateful = {
     log(
       "'I haven't even been going this very long' you say aloud to no one, in what may be a habit of yours 'Maybe I can just go back?'"
     )
-    if (JSON.parse(bag.lv1didLie))
+    if (parse(bag.lv1didLie))
       log("The lump on your head throbs in silent reply.")
     const encounter = random(3)
     if (encounter === 0) {
@@ -457,11 +457,11 @@ const aDestinyMostFateful = {
         "The giant frog reaches inside the right pocket of his shorts, pulls out a long wooden pipe and a leather pouch, knocks the pipe against the palm of his left hand and begins packing it."
       )
       log(
-        `As he carefully pulls out little bits of tobacco and pinches them into the pipe, the frog says 'So, I guess you must be ${JSON.parse(
+        `As he carefully pulls out little bits of tobacco and pinches them into the pipe, the frog says 'So, I guess you must be ${parse(
           bag.name
-        )} then? ${JSON.parse(bag.oldMansName)} said you might be coming along.`
+        )} then? ${parse(bag.oldMansName)} said you might be coming along.`
       )
-      if (JSON.parse(bag.lv1didLie)) {
+      if (parse(bag.lv1didLie)) {
         log(
           "'You know that old nut?' you yelp, and pointing to your head continue 'He gave me this lump!'"
         )
@@ -471,17 +471,17 @@ const aDestinyMostFateful = {
         log("He continues:")
       } else
         log(
-          `'Oh, you know ${JSON.parse(
+          `'Oh, you know ${parse(
             bag.oldMansName
           )}'' you ask, 'He put me up for the night. Kinda wish he'd stuck around a bit longer though'`
         )
       log(
-        `'Yeah, that sounds like ${JSON.parse(
+        `'Yeah, that sounds like ${parse(
           bag.oldMansName
         )}, bless his wacky old heart.'`
       )
       log(
-        "The pipe finally packed to his satisfaction, the frog strikes a match against the stone he's using as a seat, lights the pipe and takes a few slow and deliberate draws from it. A thick smoke leaks from his nostrils as he closes his eyes in pleasure."
+        "The pipe finally packed to his satisfaction, the frog strikes a match against the stone he's using as a seat, lights the pipe and takes a few slow draws. A thick smoke leaks from his nostrils as he closes his eyes in pleasure."
       )
       log(
         "After a moment, he opens his eyes and says 'Like I was saying, the road only goes one way, even if you decide to go the other way. It's a lot like life that way, man."
@@ -489,24 +489,24 @@ const aDestinyMostFateful = {
       log(
         "'You can make it through okay though, you just need a friend to show you the way. I guess that's where I come in.'"
       )
-      log("'Oh, so now we're friends?' you say 'We've only just met.'")
+      log("'Oh, so now we're friends?' you say, 'We've only just met.'")
       log(
         "He thinks about this for a second and then shrugs. 'We might as well be friends. Being enemies is a lot of work, man.'"
       )
       log("You can't argue with that.")
       log(
-        "As you've been speaking, the giant frog has continued puffing away at his pipe. The thick smoke has wafted over to you and you're consumed with a smell halfway between tobacco and a sweet, earthy, dry rot."
+        "As you've been speaking, the giant frog has continued puffing away at his pipe. The thick smoke has wafted over to you and you smell a smelly smell halfway between tobacco and sweet, dry rot."
       )
       log(
         "He continues 'So if you want to reach the end of the road, you gotta ask yourself whyyyyyyyy you wanna go down it in the first place.'"
       )
       log("At that, a long pause falls between the two of you.")
-      //
+      // fill this in some more
       log(
         "As he walks toward the bag, you say 'So I guess if we're gonna be traveling together, I should know your name.'"
       )
       log("He replies 'What's in a name? You can just call me Frog, man.")
-      log("Gotcha. Tt's a pleasure to be traveling with you Frogman.")
+      log("Gotcha. It's a pleasure to be traveling with you Frogman.")
       log("At this, he stops and his brow furrows.")
       log("'No', he says flatly, 'Not Frogman. Just Frog, man.'")
       log(
@@ -516,9 +516,11 @@ const aDestinyMostFateful = {
         "Frogman begins to protest again but, realizing that a fight would be a lot of effort, simply shrugs and says 'Surrrrreeee. Frogman it is. Call me when you need me, man. Or, you know, just to say hi.'"
       )
       log(
-        "With that, Frogman jumps into the Bag of Holding, a thin wisp of pungent sweet rot smoke trailing after."
+        "With that, Frogman jumps into the Bag of Holding, a thin wisp of sweet smoke trailing after."
       )
+      //add frogman to items
     }
+
     return "you took the little road"
   },
 }
