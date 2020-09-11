@@ -8,11 +8,11 @@
       name="description"
       content="A console based text adventure that tests your wits, humor and patience."
     />
-    <script defer src="js/ascii_illos.js"></script>
-    <script defer src="js/actions.js"></script>
-    <script defer src="js/levels.js"></script>
-    <script defer src="js/app.js"></script>
-    <link rel="stylesheet" href="css/style.css" />
+    <script defer src="./js/ascii_illos.js"></script>
+    <script defer src="./js/actions.js"></script>
+    <script defer src="./js/levels.js"></script>
+    <script defer src="./js/app.js"></script>
+    <link rel="stylesheet" href="./style.css" />
     <title>Bag Of Holding</title>
   </head>
   <body>
@@ -24,35 +24,37 @@
         <span>######################</span>
       </section>
       <section>
-        <span class="browser italic"></span>
-        <span class="italic mobile">or F12 to start game</span>
+        <span class="browser italic" />
+        <span class="mobile italic">or F12 to start game</span>
       </section>
       <p>
         &copy;
         <a target="_blank" href="https://www.timmalstead.com/">Tim Malstead</a>
-        | <span class="datecheck">2020</span><span class="copyright" />
+        | <span>2020</span><span class="copyright" />
       </p>
     </main>
   </body>
 </html>
 <script>
+  if (new Date().getFullYear() > 2020) {
+    const copyright = document.querySelector(".copyright")
+    copyright.innerText = `-${new Date().getFullYear()}`
+  }
+
   const agent = navigator.userAgent
   const browser = document.querySelector(".browser")
 
-  agent.includes("Macintosh")
-    ? (browser.innerText = "Command + Option + J")
-    : agent.includes("iPhone") ||
-      agent.includes("iPad") ||
-      agent.includes("Android")
-    ? ((browser.innerText = "Only for desktop browsers"),
-      document.querySelector(".mobile").classList.add("hide"))
-    : (browser.innerText = "Shift + Ctrl + J")
-
-  if (
-    new Date().getFullYear() > document.querySelector(".datecheck").innerText
+  if (agent.includes("Macintosh")) {
+    browser.innerText = "Command + Option + J"
+  } else if (
+    agent.includes("iPhone") ||
+    agent.includes("iPad") ||
+    agent.includes("Android")
   ) {
-    document.querySelector(
-      ".copyright"
-    ).innerText = `-${new Date().getFullYear()}`
+    browser.innerText = "Only for desktop browsers"
+    const mobile = document.querySelector(".mobile")
+    mobile.classList.add("hide")
+  } else {
+    browser.innerText = "Shift + Ctrl + J"
   }
 </script>
