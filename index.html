@@ -36,10 +36,9 @@
   </body>
 </html>
 <script>
-  if (new Date().getFullYear() > 2020) {
-    const copyright = document.querySelector(".copyright")
-    copyright.innerText = `-${new Date().getFullYear()}`
-  }
+  const currentYear = new Date().getFullYear()
+  const copyright = document.querySelector(".copyright")
+  copyright.innerText = `-${currentYear}`
 
   const agent = navigator.userAgent
   const browser = document.querySelector(".browser")
